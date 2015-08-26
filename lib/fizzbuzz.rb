@@ -20,4 +20,8 @@ class FizzBuzz
     fizz_buzz
   end
 
+  def self.calculate(number)
+    number
+  end
+
 end

@@ -28,3 +28,12 @@ RSpec.describe FizzBuzz, '#generate' do
     end
   end
 end
+
+RSpec.describe FizzBuzz, '#calculate' do
+
+  it "does nothing to numbers not divisable by 3 or 5" do
+    (1..100).select {|i| i % 3 != 0 && i  % 5 != 0}.each do |i|
+      expect(FizzBuzz.calculate(i)).to eq(i)
+    end
+  end
+end
