@@ -12,7 +12,6 @@ class FizzBuzz
   end
 
   def generate
-    fizz_buzz = []
     1.upto(@upto) do |i|
       @generated << self.class.calculate(i)
     end
