@@ -8,14 +8,14 @@ RSpec.describe FizzBuzz, '#generate' do
 
   it "replaces numbers divisable by 3 with 'fizz'" do
     fizz_buzz = FizzBuzz.new(20)
-    (1..20).select {|i| i % 3 == 0}.each do |i|
+    (1..20).select {|i| i % 3 == 0 && i % 5 != 0}.each do |i|
       expect(fizz_buzz.generate[i - 1]).to eq('fizz')
     end
   end
 
   it "replaces numbers divisable by 5 with 'buzz'" do
     fizz_buzz = FizzBuzz.new(100)
-    (1..100).select {|i| i % 5 == 0}.each do |i|
+    (1..100).select {|i| i % 5 == 0 && i % 3 != 0}.each do |i|
       expect(fizz_buzz.generate[i - 1]).to eq('buzz')
     end
   end
