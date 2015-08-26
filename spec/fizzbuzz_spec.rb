@@ -48,4 +48,10 @@ RSpec.describe FizzBuzz, '#calculate' do
       expect(FizzBuzz.calculate(i)).to eq('buzz')
     end
   end
+
+  it "calculates 3s and 5s to be 'fizzbuzz'" do
+    (1..100).select {|i| i % 15 == 0}.each do |i|
+      expect(FizzBuzz.calculate(i)).to eq('fizzbuzz')
+    end
+  end
 end
