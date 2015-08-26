@@ -55,6 +55,20 @@ RSpec.describe FizzBuzz, '#calculate' do
       expect(FizzBuzz.calculate(i)).to eq('fizzbuzz')
     end
   end
+
+  context "validation" do
+
+    context "less than 1 should raise an error" do
+
+      it "if the number is zero" do
+        expect { FizzBuzz.calculate(0) }.to raise_error(FizzBuzz::NumberTooSmallError)
+      end
+
+      it "if the number is negative" do
+        expect { FizzBuzz.calculate(-1) }.to raise_error(FizzBuzz::NumberTooSmallError)
+      end
+    end
+  end
 end
 
 RSpec.describe FizzBuzz, '#print' do

@@ -1,5 +1,11 @@
 class FizzBuzz
 
+  class FizzBuzzError < StandardError; end
+
+  class NumberTooSmallError < FizzBuzzError; end
+
+  class NumberTooLargeError < FizzBuzzError; end
+
   def initialize(upto)
     @upto = upto
     @generated = []
@@ -14,6 +20,7 @@ class FizzBuzz
   end
 
   def self.calculate(number)
+    raise NumberTooSmallError, "Number is too small. Must be between 1 and 100" if number <= 0
     replace_return = ''
     replace_return << 'fizz' if number % 3 == 0
     replace_return << 'buzz' if number % 5 == 0
