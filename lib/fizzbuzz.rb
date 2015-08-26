@@ -21,6 +21,7 @@ class FizzBuzz
 
   def self.calculate(number)
     raise NumberTooSmallError, "Number is too small. Must be between 1 and 100" if number <= 0
+    raise NumberTooLargeError, "Number is too large. Must be between 1 and 100" if number > 100
     replace_return = ''
     replace_return << 'fizz' if number % 3 == 0
     replace_return << 'buzz' if number % 5 == 0

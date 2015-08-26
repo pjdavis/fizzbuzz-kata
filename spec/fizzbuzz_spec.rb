@@ -68,6 +68,12 @@ RSpec.describe FizzBuzz, '#calculate' do
         expect { FizzBuzz.calculate(-1) }.to raise_error(FizzBuzz::NumberTooSmallError)
       end
     end
+    context "greater than 100 should raise an error" do
+
+      it "if the number is 101" do
+        expect { FizzBuzz.calculate(101) }.to raise_error(FizzBuzz::NumberTooLargeError)
+      end
+    end
   end
 end
 
