@@ -1,6 +1,7 @@
 require 'fizzbuzz'
 
 RSpec.describe FizzBuzz, '#generate' do
+
   it "generates numbers up to the end" do
     fizz_buzz = FizzBuzz.new(20)
     expect(fizz_buzz.generate.size).to eq(20)
@@ -17,6 +18,13 @@ RSpec.describe FizzBuzz, '#generate' do
     fizz_buzz = FizzBuzz.new(100)
     (1..100).select {|i| i % 5 == 0 && i % 3 != 0}.each do |i|
       expect(fizz_buzz.generate[i - 1]).to eq('buzz')
+    end
+  end
+
+  it "replaces numbers divisible by 3 AND 5 with fizzbuzz" do
+    fizz_buzz = FizzBuzz.new(100)
+    (1..100).select {|i| i % 15 == 0}.each do |i|
+      expect(fizz_buzz.generate[i - 1]).to eq('fizzbuzz')
     end
   end
 end
