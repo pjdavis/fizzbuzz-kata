@@ -21,14 +21,11 @@ class FizzBuzz
   end
 
   def self.calculate(number)
-    if number % 3 == 0 && number % 5 == 0
-      return 'fizzbuzz'
-    elsif number % 3 == 0
-      return 'fizz'
-    elsif number % 5 == 0
-      return 'buzz'
-    end
-    number
+    replace_return = ''
+    replace_return << 'fizz' if number % 3 == 0
+    replace_return << 'buzz' if number % 5 == 0
+
+    return replace_return.empty? ? number : replace_return
   end
 
 end
