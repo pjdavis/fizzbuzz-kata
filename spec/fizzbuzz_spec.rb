@@ -37,9 +37,15 @@ RSpec.describe FizzBuzz, '#calculate' do
     end
   end
 
-  it "calculates 3's to be 'fizz'" do
+  it "calculates 3s to be 'fizz'" do
     (1..100).select {|i| i % 3 == 0 && i % 5 != 0}.each do |i|
       expect(FizzBuzz.calculate(i)).to eq('fizz')
+    end
+  end
+
+  it "calculates 5s to be 'buzz'" do
+    (1..100).select {|i| i % 5 == 0 && i % 3 != 0}.each do |i|
+      expect(FizzBuzz.calculate(i)).to eq('buzz')
     end
   end
 end
