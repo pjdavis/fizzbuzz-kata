@@ -2,14 +2,15 @@ class FizzBuzz
 
   def initialize(upto)
     @upto = upto
+    @generated = []
   end
 
   def generate
     fizz_buzz = []
     1.upto(@upto) do |i|
-      fizz_buzz << self.class.calculate(i)
+      @generated << self.class.calculate(i)
     end
-    fizz_buzz
+     @generated
   end
 
   def self.calculate(number)
@@ -18,6 +19,11 @@ class FizzBuzz
     replace_return << 'buzz' if number % 5 == 0
 
     return replace_return.empty? ? number : replace_return
+  end
+
+  def print
+    self.generate if @generated.empty?
+    puts @generated.join("\n")
   end
 
 end

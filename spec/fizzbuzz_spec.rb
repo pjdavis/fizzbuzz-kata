@@ -1,3 +1,4 @@
+require 'stringio' #for intercepting STDOUT
 require 'fizzbuzz'
 
 RSpec.describe FizzBuzz, '#generate' do
@@ -53,5 +54,22 @@ RSpec.describe FizzBuzz, '#calculate' do
     (1..100).select {|i| i % 15 == 0}.each do |i|
       expect(FizzBuzz.calculate(i)).to eq('fizzbuzz')
     end
+  end
+end
+
+RSpec.describe FizzBuzz, '#print' do
+
+  before do
+    $stdout = StringIO.new
+  end
+
+  after do
+    $stdout = STDOUT
+  end
+
+  it "prints fizzbuzz correctly" do
+    fizz_buzz = FizzBuzz.new(15)
+    fizz_buzz.print
+    expect($stdout.string).to eq("1\n2\nfizz\n4\nbuzz\nfizz\n7\n8\nfizz\nbuzz\n11\nfizz\n13\n14\nfizzbuzz\n")
   end
 end
